@@ -16,10 +16,12 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 TESTS=test-version test-help test-no-host test-no-command \
-	test-trivial test-star test-redirect
+	test-trivial test-star test-redirect test-options
 EXTRA_DIST=${TESTS} \
 	ssh-report ssh-do \
 	test-trivial-expect test-star-expect test-redirect-expect \
-	test-trivial-do-expect test-star-do-expect test-redirect-do-expect
+	test-trivial-do-expect test-star-do-expect test-redirect-do-expect \
+	test-options-c-3des-expect test-options-c3des-expect \
+	test-options-tc3des-expect test-options-t-expect
 
 export top_srcdir

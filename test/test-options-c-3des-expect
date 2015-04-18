@@ -1,0 +1,4 @@
+-c
+3des
+host
+ 'echo' 'spong'

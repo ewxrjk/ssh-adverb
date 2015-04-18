@@ -1,0 +1,22 @@
+#! /bin/sh
+set -e
+trap "rm -f $$" EXIT INT HUP TERM
+SSH_ADVERB_CMD=${top_srcdir:-..}/test/ssh-report \
+SSH_REPORT_OUTPUT=$$ \
+    ../src/ssh-adverb -t host echo spong
+diff -u ${top_srcdir:-..}/test/test-options-t-expect $$
+
+SSH_ADVERB_CMD=${top_srcdir:-..}/test/ssh-report \
+SSH_REPORT_OUTPUT=$$ \
+    ../src/ssh-adverb -c 3des host echo spong
+diff -u ${top_srcdir:-..}/test/test-options-c-3des-expect $$
+
+SSH_ADVERB_CMD=${top_srcdir:-..}/test/ssh-report \
+SSH_REPORT_OUTPUT=$$ \
+    ../src/ssh-adverb -c3des host echo spong
+diff -u ${top_srcdir:-..}/test/test-options-c3des-expect $$
+
+SSH_ADVERB_CMD=${top_srcdir:-..}/test/ssh-report \
+SSH_REPORT_OUTPUT=$$ \
+    ../src/ssh-adverb -tc3des host echo spong
+diff -u ${top_srcdir:-..}/test/test-options-tc3des-expect $$
