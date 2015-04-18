@@ -1,0 +1,8 @@
+#! /bin/sh
+set -e
+trap "rm -f $$" EXIT INT HUP TERM
+../src/ssh-adverb --help > $$
+if [ ! -s $$ ]; then
+  echo "ERROR: --help output is empty" >&2
+fi
+

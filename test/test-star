@@ -1,0 +1,12 @@
+#! /bin/sh
+set -e
+trap "rm -f $$" EXIT INT HUP TERM
+SSH_ADVERB_CMD=${top_srcdir:-..}/test/ssh-report \
+SSH_REPORT_OUTPUT=$$ \
+    ../src/ssh-adverb host echo '*'
+diff -u ${top_srcdir:-..}/test/test-star-expect $$
+
+SSH_ADVERB_CMD=${top_srcdir:-..}/test/ssh-do \
+SSH_DO_OUTPUT=$$ \
+    ../src/ssh-adverb host echo '*'
+diff -u ${top_srcdir:-..}/test/test-star-do-expect $$

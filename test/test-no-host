@@ -1,0 +1,20 @@
+#! /bin/sh
+set -e
+trap "rm -f $$ $$.2" EXIT INT HUP TERM
+if ../src/ssh-adverb > $$ 2> $$.2; then
+  echo "ERROR: unexpectedly succeeded" >&2
+  exit 1
+fi
+if [ -s $$ ]; then
+  echo "ERROR: unexpected output" >&2
+  exit 1
+fi
+read e < $$.2
+case "$e" in
+"ERROR: no host specified" )
+  ;;
+* )
+  echo "ERROR: wrong error output: $e" >&2
+  exit 1
+  ;;
+esac

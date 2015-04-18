@@ -1,0 +1,71 @@
+.\"
+.\" This file is part of ssh-adverb.
+.\" Copyright (C) 2015 Richard Kettlewell
+.\"
+.\" This program is free software: you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation, either version 3 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\"
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program.  If not, see <http://www.gnu.org/licenses/>.
+.\"
+.TH ssh-adverb 1
+.SH NAME
+ssh-adverb \- alternative quoting syntax for ssh
+.SH SYNOPSIS
+.B ssh-adverb
+.RI [ OPTIONS ]
+.RB [ -- ]
+.I HOST
+.I COMMAND
+.RI [ ARGUMENT ...]
+.SH DESCRIPTION
+\fBssh-adverb\fR is almost equivalent to \fBssh\fR(1), but treats the
+command to execute as a vector of strings in the manner of
+\fBnice\fR(1).
+.PP
+For example, the command:
+.PP
+.nf
+ssh remote echo '*'
+.fi
+.PP
+will expand the asterisk on the server side and return a list of files.
+In contrast:
+.PP
+.nf
+ssh-adverb remote echo '*'
+.fi
+.PP
+will echo a single asterisk.
+.SH OPTIONS
+The options are the same as \fBssh\fR(1), with the following additions:
+.TP 4
+.B --version
+Displays the version string of \fBssh-adverb\fR.
+.TP
+.B --help
+Displays a detailed usage message.
+.SH ENVIRONMENT
+.TP
+.I SSH_ADVERB_CMD
+The command to execute.
+If not set, \fBssh\fR is used.
+.SH NOTES
+The name reflects the description of \fBnice\fR(1) and similar
+commands as "adverbial" commands, inspired by the obsveration that
+they somehow modify a subsequent command (i.e. verb).
+.PP
+\fBssh-adverb\fR has to have a table of \fBssh\fR options built in in
+order to correctly parse the command line, so it can get out of date
+with respect to \fBssh\fR.
+.SH AUTHOR
+Richard Kettlewell <rjk@greenend.org.uk>
+.SH "SEE ALSO"
+\fBssh\fR(1), \fBnice\fR(1), \fBnohup\fR(1)
