@@ -15,7 +15,6 @@ In contrast:
 
 will echo a single asterisk.
 
-
 Installation
 ------------
 

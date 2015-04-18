@@ -1,0 +1,17 @@
+Source: ssh-adverb
+Section: net
+Priority: optional
+Maintainer: Richard Kettlewell <rjk@greenend.org.uk>
+Standards-Version: 3.9.2
+Homepage: https://github.com/ewxrjk/ssh-adverb
+
+Package: ssh-adverb
+Architecture: any
+Depends: ${misc:Depends},${shlibs:Depends}
+Recommends: ssh-client
+Description: nice/nohup-style syntax for SSH
+ ssh-adverb quotes vector-style commands (as used by nice, nohup, etc)
+ and invokes ssh.
+ .
+ This effect is provide an alternative, often more convenient, set of
+ quoting rules.

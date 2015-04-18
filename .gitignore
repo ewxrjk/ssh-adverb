@@ -13,5 +13,8 @@ config.h.in
 config.log
 config.status
 configure
+debian/*.log
+debian/*.substvars
+debian/files
 ssh-adverb
 stamp-h1
