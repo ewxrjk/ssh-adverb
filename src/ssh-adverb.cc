@@ -174,7 +174,7 @@ int main(int argc, char **argv) {
     for(n = 1; n < argc && argv[n][0] == '-' && argv[n] != sep; ++n) {
       // Options unique to ssh-adverb
       if(argv[n] == version_arg) {
-        std::cout << "ssh-adverb "VERSION"\n";
+        std::cout << "ssh-adverb " VERSION "\n";
         return 0;
       } else if(argv[n] == help_arg) {
         help();
