@@ -1,5 +1,7 @@
+*.log
 *.o
 *.tar.gz
+*.trs
 *~
 .deps
 .libs
