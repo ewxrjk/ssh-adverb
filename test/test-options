@@ -1,6 +1,6 @@
 #! /bin/sh
 set -e
-trap "rm -f $$" EXIT INT HUP TERM
+trap "rm -f $$" EXIT
 SSH_ADVERB_CMD=${top_srcdir:-..}/test/ssh-report \
 SSH_REPORT_OUTPUT=$$ \
     ../src/ssh-adverb -t host echo spong

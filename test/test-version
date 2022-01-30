@@ -1,6 +1,6 @@
 #! /bin/sh
 set -e
-trap "rm -f $$" EXIT INT HUP TERM
+trap "rm -f $$" EXIT
 ../src/ssh-adverb --version > $$
 read v < $$
 case $v in

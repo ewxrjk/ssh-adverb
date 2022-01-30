@@ -1,6 +1,6 @@
 #! /bin/sh
 set -e
-trap "rm -f $$ $$.2" EXIT INT HUP TERM
+trap "rm -f $$ $$.2" EXIT
 if ../src/ssh-adverb > $$ 2> $$.2; then
   echo "ERROR: unexpectedly succeeded" >&2
   exit 1
